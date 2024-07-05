@@ -1,32 +1,33 @@
+import 'react-native-gesture-handler'
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './screens/home';
-import Akun from './screens/akun';
+import Favorite from './screens/favorite';
+import Detil from './screens/detail';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
+const Stack = createStackNavigator();
+
+const TopTab = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name='Doa' component={Home} />
+      <Tab.Screen name='Favorite' component={Favorite} />
+    </Tab.Navigator>
+  )
+}
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name='Home' component={Home} options={{
-          tabBarLabel: 'Beranda',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home-account" color={color} size={30} />
-          ),
-        }} />
-
-        <Tab.Screen name='Akun' component={Akun} options={{
-          tabBarLabel: 'gambar',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="book-open-outline" color={color} size={30} />
-          ),
-        }} />
-
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name='KUMPULAN DOA' component={TopTab} />
+        <Stack.Screen name='Detail' component={Detil} />
+      </Stack.Navigator>
     </NavigationContainer>
 
   );

@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, ScrollView, TouchableOpacity, FlatList, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
-const Home = () => {
+const Home = ({ }) => {
     return (
         <View>
-            <Text>home</Text>
+            <text>Home</text>
         </View>
     )
 }
+export default Home;
 
-export default Home
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
