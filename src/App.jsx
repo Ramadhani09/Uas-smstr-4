@@ -4,17 +4,16 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './screens/home';
 import Favorite from './screens/favorite';
-import Detil from './screens/detail';
+import Detail from './screens/detail';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
 
 const TopTab = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{ tabBarActiveTintColor: 'blue', tabBarInactiveTintColor: 'black' }}>
       <Tab.Screen name='Doa' component={Home} />
       <Tab.Screen name='Favorite' component={Favorite} />
     </Tab.Navigator>
@@ -26,7 +25,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='KUMPULAN DOA' component={TopTab} />
-        <Stack.Screen name='Detail' component={Detil} />
+        <Stack.Screen name='Detail' component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
 
